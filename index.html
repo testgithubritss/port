@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between; /* Space between logo and menu */
+            align-items: center;
+            padding: 1rem;
+            background-color: rgb(14, 20, 34);
+            height: 100px;
+        }
+        nav .logo {
+            width: 80px; /* Adjust logo container size */
+            height: 80px;
+        }
+        nav .logo img {
+            width: 100%; /* Ensure image fits within the container */
+            height: 90%;
+        }
+        nav .menu ul {
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav .menu ul li {
+            list-style: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin: 0 30px;
+        }
+        nav .menu ul li a{
+         text-decoration: none;
+         color: white;
+        }
+        nav .menu ul li a:hover{
+         color: yellowgreen;
+         font-size: 1.1rem;
+        }
+        section {
+            display: none; /* Hide all sections by default */
+            padding: 20px;
+        }
+        section.active {
+            display: block; /* Show the active section */
+        }
+        .HOME {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 60px 0;
+        }
+        .HOME  > div {
+            width: 30%;
+        }
+        .left {
+            font-size: 1.85rem;
+           
+        }
+        .right img{
+            width: 70%;
+        }
+        .label{
+            color: yellow;
+        }
+        p{
+            font-size: 25px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="ll.jpg" alt="Logo">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/">ABOUT ME</a></li>
+                    <li><a href="/">EDUCATION</a></li>
+                    <li><a href="/">PROJECTS</a></li>
+                    <li><a href="/">CONTACT ME</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="HOME">
+            <div class="left">
+                    HI, I AM <span class="label">JAHANZAIB HAIDER.</span>
+                    <div>I AM A PROFESSIONAL JAVA DEVELOPER.</div>
+            </div>
+            <div class="right">
+                <img src="r1.png" alt="">
+                 
+            </div>
+        </section>
+        <section class="ABOUT ME">
+            <div class="left">
+                <h3>INTRODUCTION:</h3>
+                    <p>Hi, I’m JAHANZAIB HAIDER, a passionate and results-driven Java Developer with 2 years of experience in building scalable, secure, and efficient applications. I specialize in Java programming, object-oriented design, and backend development, with a strong understanding of frameworks like Spring Boot and Hibernate.
+                    </p>
+
+                <h3>SKILLS:</h3>
+                    <li>Java Core & Advanced Java</li>
+                    <li>Data Structures</li>
+                    <li>SQL databases (MySQL, SQLite)</li>
+                    <li>Version Control (Git)</li>
+                    <li>Unit Testing (JUnit, Mockito)</li>
+                <h3>ACHIEVEMENTS:</h3>
+                    <li>Completed a certification in Java Full Stack Development.</li>
+                    <li>Data Structures Specialist Certified.</li>
+                    <li>Microsoft Specialist.</li>
+                    
+                    
+            </div>
+        </section>
+    </main>
+    <script>
+        // Get all links and sections
+        const links = document.querySelectorAll('nav .menu ul li a');
+        const sections = document.querySelectorAll('main section');
+
+        // Add click event to each link
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor behavior
+
+                // Get the target section's ID
+                const targetId = this.getAttribute('data-target');
+
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    
+  </body>  
+</html>
